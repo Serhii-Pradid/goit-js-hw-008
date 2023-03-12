@@ -28,8 +28,7 @@ function populateTextarea() {
     const saveData = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
 
     if(saveData) {
-      //  console.log(saveData)
-    mainForm.email.value = saveData.email || '';
-    mainForm.message.value = saveData.message || '';
+    mainForm.email.value = saveData.email;
+    mainForm.message.value = saveData.message;
     }
 };
