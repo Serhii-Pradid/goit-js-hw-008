@@ -8,20 +8,20 @@ const onPlay = function(time) {
     localStorage.setItem("videoplayer-current-time", time.seconds)  
 }
 
-    player.on('timeupdate', throttle(onPlay, 1000));
+player.on('timeupdate', throttle(onPlay, 1000));
 
-    const currentTime = Number(localStorage.getItem("videoplayer-current-time"));
+const currentTime = Number(localStorage.getItem("videoplayer-current-time"));
 
-          player.setCurrentTime(currentTime).then(function(seconds) {
-            
-        }).catch(function(error) {
-            switch (error.name) {
-                case 'RangeError':
-                    
-                    break;
-        
-                default:
-                   
-                    break;
-            }
-        });
+player.setCurrentTime(currentTime).then(function(seconds) {
+    // seconds = the actual time that the player seeked to
+}).catch(function(error) {
+    switch (error.name) {
+        case 'RangeError':
+            // the time was less than 0 or greater than the video’s duration
+            break;
+
+        default:
+            // some other error occurred
+            break;
+    }
+});
