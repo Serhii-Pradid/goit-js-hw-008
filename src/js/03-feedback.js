@@ -31,7 +31,9 @@ function populateTextarea() {
             try {
                  formData = JSON.parse(saveData);
             } catch (error) {
+                console.log(error.message);
             }
+
             Object.entries(formData).forEach(([name, value]) => { // повертає масив з 2х елементів та перебирає його
                    mainForm.elements[name].value = value;         // в поле форми вставляє значення яке збереглось     
             });
